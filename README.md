@@ -37,7 +37,7 @@ Além disso, você deve utilizar uma ferramenta para testar a API, como, por exe
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/antonioeloy/livraria-api.git>
+$ git clone https://github.com/antonioeloy/livraria-api.git
 
 # Crie a imagem da aplicação
 $ docker image build -t livraria-api .
