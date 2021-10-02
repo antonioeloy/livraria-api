@@ -1,3 +1,7 @@
+<h1 align="center">
+  <img alt="banner" title="banner" src="banner.png" />
+</h1>
+
 # :computer: livraria-api
 API REST com Spring Boot para um sistema de gestão de uma livraria online.
 
