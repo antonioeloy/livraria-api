@@ -52,11 +52,8 @@ Além disso, você deve utilizar uma ferramenta para testar a API, como, por exe
 # Clone este repositório
 $ git clone https://github.com/antonioeloy/livraria-api.git
 
-# Crie a imagem da aplicação
-$ docker image build -t livraria-api .
-
 # Execute o container da aplicação
-$ docker run -d -p8080:8080 livraria-api
+$ docker-compose up
 
 # A aplicação iniciará na porta 8080
 ```
