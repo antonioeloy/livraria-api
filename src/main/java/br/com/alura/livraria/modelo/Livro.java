@@ -41,8 +41,7 @@ public class Livro {
 	@Column(name = "numero_paginas")
 	private Integer numeroPaginas;
 	
-	@NotNull
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Autor autor;
 
 }

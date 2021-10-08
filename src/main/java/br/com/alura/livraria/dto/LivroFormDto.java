@@ -19,6 +19,7 @@ public class LivroFormDto {
 	
 	@NotBlank(message = "O título do livro não pode ser nulo nem conter apenas caracteres em branco")
 	@Size(min = 10, message = "O título do livro deve conter no mínimo 10 caracteres")
+	@Size(max = 200, message = "O título do livro deve conter no máximo 200 caracteres")
 	private String titulo;
 	
 	@NotNull(message = "A data de lançamento do livro não pode ser nula")
