@@ -26,10 +26,11 @@ public class LivroService {
 	}
 	
 	@Transactional
-	public void cadastrar(LivroFormDto livroFormDto) {
+	public LivroDto cadastrar(LivroFormDto livroFormDto) {
 		modelMapper.typeMap(LivroFormDto.class, Livro.class).addMappings(mapper -> mapper.skip(Livro::setId));
 		Livro livro = modelMapper.map(livroFormDto, Livro.class);
 		livroRepository.save(livro);
+		return modelMapper.map(livro, LivroDto.class);
 	}
 	
 }

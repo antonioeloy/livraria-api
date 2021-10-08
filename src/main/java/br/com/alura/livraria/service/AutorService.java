@@ -26,10 +26,11 @@ public class AutorService {
 	}
 	
 	@Transactional
-	public void cadastrar(AutorFormDto autorFormDto) {
+	public AutorDto cadastrar(AutorFormDto autorFormDto) {
 		modelMapper.typeMap(AutorFormDto.class, Autor.class).addMappings(mapper -> mapper.skip(Autor::setId));
 		Autor autor = modelMapper.map(autorFormDto, Autor.class);
 		autorRepository.save(autor);
+		return modelMapper.map(autor, AutorDto.class);
 	}
 
 }
