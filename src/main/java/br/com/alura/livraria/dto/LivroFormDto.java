@@ -31,6 +31,6 @@ public class LivroFormDto {
 	private Integer numeroPaginas;
 	
 	@NotNull(message = "O autor do livro não pode ser nulo")
-	private AutorFormDto autor;
+	private Long autorId;
 
 }

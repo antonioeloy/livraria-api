@@ -17,7 +17,5 @@ public class LivroDto {
 	private LocalDate dataLancamento;
 	
 	private Integer numeroPaginas;
-	
-	private AutorDto autor;
 
 }
