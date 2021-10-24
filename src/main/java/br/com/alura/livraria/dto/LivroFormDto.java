@@ -17,21 +17,20 @@ import lombok.Setter;
 @Setter
 public class LivroFormDto {
 	
-	@NotBlank(message = "O título do livro não pode ser nulo nem conter apenas caracteres em branco")
-	@Size(min = 10, message = "O título do livro deve conter no mínimo 10 caracteres")
-	@Size(max = 200, message = "O título do livro deve conter no máximo 200 caracteres")
+	@NotBlank
+	@Size(min = 10, max = 200)
 	private String titulo;
 	
-	@NotNull(message = "A data de lançamento do livro não pode ser nula")
-	@PastOrPresent(message = "A data de lançamento do livro deve ser válida")
+	@NotNull
+	@PastOrPresent
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataLancamento;
 	
-	@NotNull(message = "O número de páginas do livro não pode ser nulo")
-	@Min(value = 100, message = "O número de páginas do livro deve ser maior ou igual a 100")
+	@NotNull
+	@Min(value = 100)
 	private Integer numeroPaginas;
 	
-	@NotNull(message = "O autor do livro não pode ser nulo")
+	@NotNull
 	private Long autorId;
 
 }
