@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import br.com.alura.livraria.dto.Erro400Dto;
+import br.com.alura.livraria.dto.Erro400EmailAutorEmUsoDto;
 import br.com.alura.livraria.dto.Erro500Dto;
 
 @RestControllerAdvice
@@ -43,6 +44,12 @@ public class TratamentoDeErros {
 	@ExceptionHandler({EntityNotFoundException.class, EmptyResultDataAccessException.class})
 	@ResponseStatus(code = HttpStatus.NOT_FOUND)
 	public void tratarErro404() {
+	}
+	
+	@ExceptionHandler(EmailAutorEmUsoException.class)
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	public Erro400EmailAutorEmUsoDto tratarErro400EmailAutorEmUso(EmailAutorEmUsoException ex) {
+		return new Erro400EmailAutorEmUsoDto(ex.getMessage());
 	}
 
 }
