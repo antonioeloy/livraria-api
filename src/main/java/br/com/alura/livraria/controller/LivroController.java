@@ -21,7 +21,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.com.alura.livraria.dto.LivroDto;
 import br.com.alura.livraria.dto.LivroFormDto;
 import br.com.alura.livraria.service.LivroService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
+@Api(tags = "Livros")
 @RestController
 @RequestMapping("/livros")
 public class LivroController {
@@ -29,11 +32,13 @@ public class LivroController {
 	@Autowired
 	private LivroService livroService;
 	
+	@ApiOperation("Lista todos os livros")
 	@GetMapping
 	public Page<LivroDto> listar(Pageable paginacao) {
 		return livroService.listar(paginacao);
 	}
 	
+	@ApiOperation("Cadastra um novo livro")
 	@PostMapping
 	public ResponseEntity<LivroDto> cadastrar(@RequestBody @Valid LivroFormDto livroFormDto, 
 			UriComponentsBuilder uriBuilder) {
@@ -45,18 +50,21 @@ public class LivroController {
 		return ResponseEntity.created(uri).body(livroDto);
 	}
 	
+	@ApiOperation("Busca um livro")
 	@GetMapping("/{id}")
 	public ResponseEntity<LivroDto> buscar(@PathVariable Long id) {
 		LivroDto livroDto = livroService.buscar(id);
 		return ResponseEntity.ok(livroDto);
 	}
 	
+	@ApiOperation("Atualiza um livro")
 	@PutMapping("/{id}")
 	public ResponseEntity<LivroDto> atualizar(@PathVariable Long id, @RequestBody @Valid LivroFormDto livroFormDto) {
 		LivroDto livroDto = livroService.atualizar(id, livroFormDto);
 		return ResponseEntity.ok(livroDto);
 	}
 	
+	@ApiOperation("Remove um livro")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> remover(@PathVariable Long id) {
 		livroService.remover(id);

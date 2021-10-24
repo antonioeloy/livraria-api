@@ -21,7 +21,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.com.alura.livraria.dto.AutorDto;
 import br.com.alura.livraria.dto.AutorFormDto;
 import br.com.alura.livraria.service.AutorService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
+@Api(tags = "Autores")
 @RestController
 @RequestMapping("/autores")
 public class AutorController {
@@ -29,11 +32,13 @@ public class AutorController {
 	@Autowired
 	private AutorService autorService;
 	
+	@ApiOperation("Lista todos os autores")
 	@GetMapping
 	public Page<AutorDto> listar(Pageable paginacao) {
 		return autorService.listar(paginacao);
 	}
 	
+	@ApiOperation("Cadastra um novo autor")
 	@PostMapping
 	public ResponseEntity<AutorDto> cadastrar(@RequestBody @Valid AutorFormDto autorFormDto, 
 			UriComponentsBuilder uriBuilder) {
@@ -45,18 +50,21 @@ public class AutorController {
 		return ResponseEntity.created(uri).body(autorDto);
 	}
 	
+	@ApiOperation("Busca um autor")
 	@GetMapping("/{id}")
 	public ResponseEntity<AutorDto> buscar(@PathVariable Long id) {
 		AutorDto autorDto = autorService.buscar(id);
 		return ResponseEntity.ok(autorDto);
 	}
 	
+	@ApiOperation("Atualiza um autor")
 	@PutMapping("/{id}")
 	public ResponseEntity<AutorDto> atualizar(@PathVariable Long id, @RequestBody @Valid AutorFormDto autorFormDto) {
 		AutorDto autorDto = autorService.atualizar(id, autorFormDto);
 		return ResponseEntity.ok(autorDto);
 	}
 	
+	@ApiOperation("Remove um autor")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> remover(@PathVariable Long id) {
 		autorService.remover(id);
