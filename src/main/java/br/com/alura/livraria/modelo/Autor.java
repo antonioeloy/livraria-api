@@ -34,5 +34,25 @@ public class Autor {
 	private LocalDate dataNascimento;
 	
 	private String minicurriculo;
+	
+	public void atualiza(String nome, String email, LocalDate dataNascimento, String minicurriculo) {
+		this.nome = nome;
+		this.email = email;
+		this.dataNascimento = dataNascimento;
+		this.minicurriculo = minicurriculo;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		Autor autor = (Autor) obj;
+		
+		if (this.id.equals(autor.id)) {
+			return true;
+		}
+		
+		return false;
+		
+	}
 
 }

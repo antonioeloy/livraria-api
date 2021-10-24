@@ -46,9 +46,9 @@ public class TratamentoDeErros {
 	public void tratarErro404() {
 	}
 	
-	@ExceptionHandler(EmailAutorEmUsoException.class)
+	@ExceptionHandler({EmailAutorEmUsoException.class, AutorExcluidoPossuiLivrosException.class})
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
-	public Erro400EmailAutorEmUsoDto tratarErro400EmailAutorEmUso(EmailAutorEmUsoException ex) {
+	public Erro400EmailAutorEmUsoDto tratarErro400EmailAutorEmUso(RuntimeException ex) {
 		return new Erro400EmailAutorEmUsoDto(ex.getMessage());
 	}
 
