@@ -38,7 +38,7 @@ public class AutorController {
 		return autorService.listar(paginacao);
 	}
 	
-	@ApiOperation("Cadastra um novo autor")
+	@ApiOperation("Cadastra um autor")
 	@PostMapping
 	public ResponseEntity<AutorDto> cadastrar(@RequestBody @Valid AutorFormDto autorFormDto, 
 			UriComponentsBuilder uriBuilder) {
@@ -50,21 +50,21 @@ public class AutorController {
 		return ResponseEntity.created(uri).body(autorDto);
 	}
 	
-	@ApiOperation("Busca um autor")
+	@ApiOperation("Retorna os dados de um autor")
 	@GetMapping("/{id}")
 	public ResponseEntity<AutorDto> buscar(@PathVariable Long id) {
 		AutorDto autorDto = autorService.buscar(id);
 		return ResponseEntity.ok(autorDto);
 	}
 	
-	@ApiOperation("Atualiza um autor")
+	@ApiOperation("Atualiza os dados de um autor")
 	@PutMapping("/{id}")
 	public ResponseEntity<AutorDto> atualizar(@PathVariable Long id, @RequestBody @Valid AutorFormDto autorFormDto) {
 		AutorDto autorDto = autorService.atualizar(id, autorFormDto);
 		return ResponseEntity.ok(autorDto);
 	}
 	
-	@ApiOperation("Remove um autor")
+	@ApiOperation("Exclui um autor")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> remover(@PathVariable Long id) {
 		autorService.remover(id);

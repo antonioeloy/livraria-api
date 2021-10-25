@@ -38,7 +38,7 @@ public class LivroController {
 		return livroService.listar(paginacao);
 	}
 	
-	@ApiOperation("Cadastra um novo livro")
+	@ApiOperation("Cadastra um livro")
 	@PostMapping
 	public ResponseEntity<LivroDto> cadastrar(@RequestBody @Valid LivroFormDto livroFormDto, 
 			UriComponentsBuilder uriBuilder) {
@@ -50,21 +50,21 @@ public class LivroController {
 		return ResponseEntity.created(uri).body(livroDto);
 	}
 	
-	@ApiOperation("Busca um livro")
+	@ApiOperation("Retorna os dados de um livro")
 	@GetMapping("/{id}")
 	public ResponseEntity<LivroDto> buscar(@PathVariable Long id) {
 		LivroDto livroDto = livroService.buscar(id);
 		return ResponseEntity.ok(livroDto);
 	}
 	
-	@ApiOperation("Atualiza um livro")
+	@ApiOperation("Atualiza os dados de um livro")
 	@PutMapping("/{id}")
 	public ResponseEntity<LivroDto> atualizar(@PathVariable Long id, @RequestBody @Valid LivroFormDto livroFormDto) {
 		LivroDto livroDto = livroService.atualizar(id, livroFormDto);
 		return ResponseEntity.ok(livroDto);
 	}
 	
-	@ApiOperation("Remove um livro")
+	@ApiOperation("Exclui um livro")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> remover(@PathVariable Long id) {
 		livroService.remover(id);

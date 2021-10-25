@@ -20,7 +20,7 @@ public class RelatorioController {
 	@Autowired
 	private RelatorioService relatorioService;
 	
-	@ApiOperation("Retorna relatório de quantidade de livros por autor")
+	@ApiOperation("Gera relatório de quantidade de livros por autor")
 	@GetMapping("/quantidade-livros-autor")
 	public List<QuantidadeLivrosPorAutorDto> relatorioQuantidadeLivrosPorAutor() {
 		return relatorioService.relatorioQuantidadeLivrosPorAutor();
