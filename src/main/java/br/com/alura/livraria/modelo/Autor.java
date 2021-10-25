@@ -35,6 +35,13 @@ public class Autor {
 	
 	private String minicurriculo;
 	
+	public Autor(String nome, String email, LocalDate dataNascimento, String minicurriculo) {
+		this.nome = nome;
+		this.email = email;
+		this.dataNascimento = dataNascimento;
+		this.minicurriculo = minicurriculo;
+	}
+	
 	public void atualiza(String nome, String email, LocalDate dataNascimento, String minicurriculo) {
 		this.nome = nome;
 		this.email = email;
