@@ -1,5 +1,6 @@
 package br.com.alura.livraria.infra;
 
+import java.util.Arrays;
 import java.util.Collections;
 
 import org.springframework.context.annotation.Bean;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.builders.RequestParameterBuilder;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
@@ -25,7 +27,6 @@ public class SpringfoxSwaggerConfigurations {
 	private static final String LICENCA = "MIT License";
 	private static final String ENDERECO_LICENCA = "https://github.com/antonioeloy/livraria-api/blob/master/LICENSE";
 	
-	
 	@Bean
     public Docket api() { 
         return new Docket(DocumentationType.SWAGGER_2)  
@@ -33,6 +34,14 @@ public class SpringfoxSwaggerConfigurations {
           .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))              
           .paths(PathSelectors.any())                          
           .build()
+          .globalRequestParameters(Arrays.asList(
+        		  new RequestParameterBuilder()
+        		  .name("Authorization")
+        		  .description("Bearer Token")
+        		  .required(false)
+        		  .in("header")
+        		  .build())
+        		  )
           .apiInfo(apiInfo());
     }
 	
