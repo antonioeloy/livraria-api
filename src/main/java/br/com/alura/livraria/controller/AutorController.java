@@ -3,6 +3,7 @@ package br.com.alura.livraria.controller;
 import java.net.URI;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -52,21 +53,21 @@ public class AutorController {
 	
 	@ApiOperation("Retorna os dados de um autor")
 	@GetMapping("/{id}")
-	public ResponseEntity<AutorDto> buscar(@PathVariable Long id) {
+	public ResponseEntity<AutorDto> buscar(@PathVariable @NotNull Long id) {
 		AutorDto autorDto = autorService.buscar(id);
 		return ResponseEntity.ok(autorDto);
 	}
 	
 	@ApiOperation("Atualiza os dados de um autor")
 	@PutMapping("/{id}")
-	public ResponseEntity<AutorDto> atualizar(@PathVariable Long id, @RequestBody @Valid AutorFormDto autorFormDto) {
+	public ResponseEntity<AutorDto> atualizar(@PathVariable @NotNull Long id, @RequestBody @Valid AutorFormDto autorFormDto) {
 		AutorDto autorDto = autorService.atualizar(id, autorFormDto);
 		return ResponseEntity.ok(autorDto);
 	}
 	
 	@ApiOperation("Exclui um autor")
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Object> remover(@PathVariable Long id) {
+	public ResponseEntity<Object> remover(@PathVariable @NotNull Long id) {
 		autorService.remover(id);
 		return ResponseEntity.noContent().build();
 	}
