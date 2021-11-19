@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.alura.livraria.dto.LivroDetalhadoDto;
 import br.com.alura.livraria.dto.LivroDto;
 import br.com.alura.livraria.dto.LivroFormDto;
 import br.com.alura.livraria.infra.LivroMesmoTituloException;
@@ -56,12 +57,12 @@ public class LivroService {
 		
 	}
 
-	public LivroDto buscar(Long id) {
+	public LivroDetalhadoDto buscar(Long id) {
 		
 		Livro livro = livroRepository.findById(id)
 				.orElseThrow(() -> new EntityNotFoundException());
-		
-		return modelMapper.map(livro, LivroDto.class);
+
+		return modelMapper.map(livro, LivroDetalhadoDto.class);
 		
 	}
 

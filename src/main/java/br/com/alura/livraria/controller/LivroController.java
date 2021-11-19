@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.com.alura.livraria.dto.LivroDetalhadoDto;
 import br.com.alura.livraria.dto.LivroDto;
 import br.com.alura.livraria.dto.LivroFormDto;
 import br.com.alura.livraria.service.LivroService;
@@ -53,9 +54,9 @@ public class LivroController {
 	
 	@ApiOperation("Retorna os dados de um livro")
 	@GetMapping("/{id}")
-	public ResponseEntity<LivroDto> buscar(@PathVariable @NotNull Long id) {
-		LivroDto livroDto = livroService.buscar(id);
-		return ResponseEntity.ok(livroDto);
+	public ResponseEntity<LivroDetalhadoDto> buscar(@PathVariable @NotNull Long id) {
+		LivroDetalhadoDto livroDetalhadoDto = livroService.buscar(id);
+		return ResponseEntity.ok(livroDetalhadoDto);
 	}
 	
 	@ApiOperation("Atualiza os dados de um livro")
