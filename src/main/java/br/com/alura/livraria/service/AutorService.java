@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.alura.livraria.dto.AutorDetalhadoDto;
 import br.com.alura.livraria.dto.AutorDto;
 import br.com.alura.livraria.dto.AutorFormDto;
 import br.com.alura.livraria.infra.AutorExcluidoPossuiLivrosException;
@@ -56,12 +57,12 @@ public class AutorService {
 		
 	}
 
-	public AutorDto buscar(Long id) {
+	public AutorDetalhadoDto buscar(Long id) {
 		
 		Autor autor = autorRepository.findById(id)
 				.orElseThrow(() -> new EntityNotFoundException());
 		
-		return modelMapper.map(autor, AutorDto.class);
+		return modelMapper.map(autor, AutorDetalhadoDto.class);
 	
 	}
 

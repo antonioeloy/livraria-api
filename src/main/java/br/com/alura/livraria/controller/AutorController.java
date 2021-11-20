@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.com.alura.livraria.dto.AutorDetalhadoDto;
 import br.com.alura.livraria.dto.AutorDto;
 import br.com.alura.livraria.dto.AutorFormDto;
 import br.com.alura.livraria.service.AutorService;
@@ -53,9 +54,9 @@ public class AutorController {
 	
 	@ApiOperation("Retorna os dados de um autor")
 	@GetMapping("/{id}")
-	public ResponseEntity<AutorDto> buscar(@PathVariable @NotNull Long id) {
-		AutorDto autorDto = autorService.buscar(id);
-		return ResponseEntity.ok(autorDto);
+	public ResponseEntity<AutorDetalhadoDto> buscar(@PathVariable @NotNull Long id) {
+		AutorDetalhadoDto autorDetalhadoDto = autorService.buscar(id);
+		return ResponseEntity.ok(autorDetalhadoDto);
 	}
 	
 	@ApiOperation("Atualiza os dados de um autor")
