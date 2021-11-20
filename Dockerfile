@@ -6,12 +6,12 @@ COPY pom.xml /build/
 COPY src /build/src/
 
 WORKDIR /build/
-RUN mvn package
+RUN mvn clean package -DskipTests
 
 FROM openjdk:11-jre-slim
 
 WORKDIR /app
 
-COPY --from=MAVEN_BUILD /build/target/livraria-api-1.0.jar /app/
+COPY --from=MAVEN_BUILD /build/target/*.jar /app/livraria-api.jar
 
-ENTRYPOINT ["java", "-jar", "livraria-api-1.0.jar"]
+CMD java -XX:+UseContainerSupport -jar livraria-api.jar
