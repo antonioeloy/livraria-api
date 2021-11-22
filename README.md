@@ -5,7 +5,7 @@
 # :computer: livraria-api
 API REST com Spring Boot para um sistema de gestão de uma livraria online.
 
-Este projeto está sendo desenvolvido ao longo do Bootcamp Java Alura 2021.
+Este projeto foi desenvolvido ao longo do Bootcamp Java Alura 2021.
 
 ### :bookmark_tabs: Tabela de conteúdos
 * [Status do projeto](#status)
@@ -18,18 +18,19 @@ Este projeto está sendo desenvolvido ao longo do Bootcamp Java Alura 2021.
 
 <a name="status"/></a>
 ### :hourglass: Status do projeto
-Em desenvolvimento.
+Concluído.
 
 <a name="tecnologias"/></a>
 ### :hammer_and_wrench: Tecnologias
 
-As seguintes ferramentas são utilizadas no desenvolvimento deste projeto:
+As seguintes tecnologias e ferramentas foram utilizadas no desenvolvimento deste projeto:
 
 - [Java](https://www.oracle.com/java/)
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Spring Boot Starter Web](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web)
 - [Spring Boot Starter Validation](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation)
 - [Spring Boot Starter Data JPA](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa)
+- [Spring Boot Starter Security](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security)
 - [Spring Boot Starter Test](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test)
 - [Spring Boot DevTools](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools)
 - [Springfox Swagger](http://springfox.github.io/springfox/)
@@ -53,6 +54,11 @@ As seguintes ferramentas são utilizadas no desenvolvimento deste projeto:
 - [x] Retornar os dados de um livro
 - [x] Atualizar os dados de um livro
 - [x] Excluir um livro 
+- [x] Listar usuários     
+- [x] Cadastrar um usuário
+- [x] Atualizar um usuário
+- [x] Retornar um usuário
+- [x] Remover um usuário  
 - [x] Gerar relatório de quantidade de livros por autor 
 
 <a name="requisitos"/></a>
@@ -69,7 +75,7 @@ Antes de começar, você precisa ter instalado em sua máquina as seguintes ferr
 # Clone este repositório
 $ git clone https://github.com/antonioeloy/livraria-api.git
 
-# Execute o container da aplicação
+# Na pasta raiz do projeto, execute os contêineres da aplicação
 $ docker-compose up
 
 # A aplicação iniciará na porta 8080
