@@ -4,8 +4,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
-@Profile({"dev", "test"})
-public class EnviadorDeEmailDevTest implements EnviadorDeEmails {
+@Profile({"homolog", "dev", "test"})
+public class EnviadorDeEmailHomologDevTest implements EnviadorDeEmails {
 	
 	@Override
 	public void enviarEmail(String destinatario, String assunto, String mensagem) {
